@@ -1,0 +1,6 @@
+#tetris-canvas{
+	display: block;
+	margin: 10px auto;
+	border: solid #000 2px;
+	background: #000;
+}
