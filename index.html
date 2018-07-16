@@ -8,13 +8,20 @@
 	<meta name="keywords" content="Tetris Web, JS, HTML"/>
 	<meta name="author" content="Iram Martinez Lamas"/>
 	<link rel="shortcut icon" href="img/Tetris.png">
-	<link rel="stylesheet" href="css/normalizer.css">
 	<link rel="stylesheet" href="css/theme.css">
 	<script src="js/modernizr.js"></script>
 	<script src="js/game.js"></script>
 </head>
 <body onload="initialize()">
-	<p id="instructions">&#8593; Rotate, &#8592; Left, &#8594; Right, &#8595; Go Down, [space] Start Game</p>
+	<p id="instructions">&#8593; Rotate, &#8592; Left, &#8594; Right, &#8595; Go Down</p>
+	<span id="score"><strong>Score: </strong>0</span>
 	<canvas id="tetris-canvas"></canvas>
+	
+	<div id="controls">
+		<div><button onclick="action(0)">&#x21B6;</button></div>
+		<button onclick="action(1)">&#8592;</button>
+		<button onclick="action(2)">&#8595;</button>
+		<button onclick="action(3)">&#8594;</button>
+	</div>
 </body>
 </html>
