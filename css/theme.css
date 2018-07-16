@@ -1,6 +1,16 @@
 #tetris-canvas{
 	display: block;
-	margin: 10px auto;
+	margin: 0px auto;
 	border: solid #000 2px;
-	background: #000;
+}
+#instructions{
+	display: none;
+}
+@media screen and (min-width: 950px){
+	#instructions{
+		display: block;
+		text-align: center;
+		font-weight: 800;
+		font-size: 1.5em;
+	}
 }
