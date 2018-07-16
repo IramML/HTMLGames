@@ -3,21 +3,6 @@
 	margin: 0px auto;
 	border: solid #000 2px;
 }
-#btnStart{
-	display: block;
-	margin: auto;
-	background: #067c29;
-	color: #fff;
-	font-size: 1.4em;
-	border-radius: 10%;
-	border: solid grey 1px;
-	width: 90px;
-	height: 50px;
-}
-#score{
-	display: block;
-	margin: auto;
-}
 #instructions{
 	display: none;
 }
@@ -34,29 +19,6 @@
 	height: 55px;
 	margin: 5px;
 }
-#score{
-	font-size: 2em;
-	text-align: center;
-}
-#game-content{
-	position: relative;
-}
-#game-over{
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	height: 100%;
-	background: rgba(200, 200, 200, 0.8);
-	display: none;
-}
-#game-over h2{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-size: 2.5em;
-}
 @media screen and (min-width: 950px){
 	#instructions{
 		display: block;
@@ -65,9 +27,6 @@
 		font-size: 1.5em;
 	}
 	#controls{
-		display: none;
-	}
-	#btnStart{
 		display: none;
 	}
 }

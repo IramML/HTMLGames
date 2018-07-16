@@ -1,9 +1,6 @@
 var canvas;
 var ctx;
-var score;
 var FPS=50;
-
-var numScore=0;
 
 var widthTable=10;
 var heightTable=20;
@@ -17,7 +14,6 @@ var widthCanvas=400;
 var heightCanvas=640;
 
 if(screen.width<950){
-	//1.6 phone
 	widthCanvas=250;
 	heightCanvas=400;
 
@@ -399,7 +395,6 @@ function initialize(){
 	ctx=canvas.getContext('2d');
   	canvas.width=widthCanvas;
 	canvas.height=heightCanvas;
-	score=document.getElementById('score');
 	blocks=new Blocks();
 	setInterval(function(){main();}, 1000/FPS);
 	initializeKeyboard();
@@ -422,9 +417,8 @@ function initializeKeyboard(){
 }
 function main(){
 	deleteCanvas();
-	blocks.fall();
-	score.innerHTML="<strong>Score: </strong> "+numScore;
 	blocks.draw();
+	blocks.fall();
 	drawTable();
 }
 function drawTable(){
