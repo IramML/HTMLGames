@@ -14,6 +14,7 @@ var widthCanvas=400;
 var heightCanvas=640;
 
 if(screen.width<950){
+	//1.6 phone
 	widthCanvas=250;
 	heightCanvas=400;
 
@@ -21,9 +22,8 @@ if(screen.width<950){
 	heightB=25;
 
 }
-
 //block colors
-var colors=['#00F', '#0F0', '#F00', '#8404ed', '#FFD700', '#00CED1', '#FF8C00'];
+var colors=['#00F', '#0F0', '#F00', '#F0F', '#FFD700', '#00CED1', '#FF8C00'];
 
 var table=[
 [1,0,0,0,0,0,0,0,0,0,0,1],
@@ -48,7 +48,6 @@ var table=[
 [1,0,0,0,0,0,0,0,0,0,0,1],
 [1,1,1,1,1,1,1,1,1,1,1,1]
 ];
-
 var tableEmpty=[
 [1,0,0,0,0,0,0,0,0,0,0,1],
 [1,0,0,0,0,0,0,0,0,0,0,1],
@@ -72,7 +71,6 @@ var tableEmpty=[
 [1,0,0,0,0,0,0,0,0,0,0,1],
 [1,1,1,1,1,1,1,1,1,1,1,1]
 ];
-
 var graphicBlocks=[
 	[	//Block 1
 		[
@@ -180,20 +178,20 @@ var graphicBlocks=[
 	],
 	[	//Block 5
 		[
-			[0,0,0,0],
-			[0,5,5,5], 
-			[0,5,0,0],
-			[0,0,0,0]
-		],
-		[
 			[0,0,5,0],
 			[0,0,5,0], 
 			[0,0,5,5],
 			[0,0,0,0]
 		],
 		[
+			[0,0,0,0],
+			[0,5,5,5], 
+			[0,5,0,0],
+			[0,0,0,0]
+		],
+		[
 			[0,0,0,5],
-			[0,5,5,5],
+			[0,5,5,5], 
 			[0,0,0,0],
 			[0,0,0,0]
 		],
@@ -310,10 +308,10 @@ class Blocks{
 				
 				this.y++;
 			}else{
-				if(this.checkGameOver())this.resetTable();
 				this.fixBlock();
 				this.clearLine();
 				this.newBlock();
+				if(this.checkGameOver())this.resetTable();
 			}
 			this.frames=0;
 		}
@@ -349,7 +347,11 @@ class Blocks{
 		return gameOver;
 	}
 	resetTable(){
-		table=tableEmpty;
+		for(var py=0;py<21;py++){
+			for(var px=0;px<12;px++){
+				table[py][px] = tableEmpty[py][px];
+			}
+		}
 	}
 	clearLine(){
 		var positionY=[];
@@ -361,7 +363,6 @@ class Blocks{
 				}
 			}
 			if(lineComplete){
-				numScore+=10;
 				positionY.push(pxY);
 				for(var pxX=1; pxX<=widthTable; pxX++){
 					table[pxY][pxX]=0;
@@ -384,11 +385,6 @@ class Blocks{
 }
 
 
-
-if(screen.width<900){
-	widthCanvas=250;
-	heightCanvas=400;
-}
 var blocks;
 function initialize(){
 	canvas=document.getElementById('tetris-canvas');
@@ -417,37 +413,21 @@ function initializeKeyboard(){
 }
 function main(){
 	deleteCanvas();
-	blocks.draw();
 	blocks.fall();
+	blocks.draw();
 	drawTable();
 }
 function drawTable(){
 	for(var pxY=marginTop; pxY<=heightTable; pxY++){
-		for (var pxX=1; pxX<=widthTable; pxX++) {
-			if(table[pxY][pxX]!=0){
-				ctx.fillStyle=colors[table[pxY][pxX]-1];
-				ctx.fillRect((pxX-1)*widthB, (pxY-marginTop)*heightB, widthB, heightB);
-			}
-		}	
-	}
+			for (var pxX=1; pxX<=widthTable; pxX++) {
+				if(table[pxY][pxX]!=0){
+					ctx.fillStyle=colors[table[pxY][pxX]-1];
+					ctx.fillRect((pxX-1)*widthB, (pxY-marginTop)*heightB, widthB, heightB);
+				}
+			}	
+		}
 }
 function deleteCanvas(){
 	canvas.width=widthCanvas;
 	canvas.height=heightCanvas;
-}
-function action(act){
-	switch(act){
-		case 0:
-			blocks.rotate();
-			break;
-		case 1:
-			blocks.left();
-			break;
-		case 2:
-			blocks.goDown();
-			break;
-		case 3:
-			blocks.right();
-			break;
-	}
 }
