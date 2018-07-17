@@ -431,3 +431,19 @@ function deleteCanvas(){
 	canvas.width=widthCanvas;
 	canvas.height=heightCanvas;
 }
+function action(act){
+	switch(act){
+		case 0:
+			blocks.rotate();
+			break;
+		case 1:
+			blocks.left();
+			break;
+		case 2:
+			blocks.goDown();
+			break;
+		case 3:
+			blocks.right();
+			break;
+	}
+}
