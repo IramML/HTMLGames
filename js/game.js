@@ -23,7 +23,7 @@ if(screen.width<950){
 
 }
 //block colors
-var colors=['#00F', '#0F0', '#F00', '#F0F', '#FFD700', '#00CED1', '#FF8C00'];
+var colors=['#00F', '#0F0', '#F00', '#8a2edb', '#FFD700', '#00CED1', '#FF8C00'];
 
 var table=[
 [1,0,0,0,0,0,0,0,0,0,0,1],
