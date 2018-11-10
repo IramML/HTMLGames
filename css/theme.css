@@ -1,32 +1,91 @@
-#tetris-canvas{
-	display: block;
-	margin: 0px auto;
-	border: solid #000 2px;
+:root{
+    --mainBackColor: #393E46;
+    --mainFontColor: #fff;
+    --ghostButtonColor: #FC3C3C;
+    --secondGhostButtonColor: #00ADB5;
 }
-#instructions{
-	display: none;
+body{
+    background: var(--mainBackColor);
+    color: var(--mainFontColor);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
-#controls{
-	text-align: center;
+#title{
+    font-size: 2em;
+    margin: 50px auto; 
+} 
+.link-game{
+    margin: 35px auto; 
+    display: block;
+    width: 65.55%;
+    color: var(--mainFontColor);
+    background: var(--ghostButtonColor);
+    padding: 12px 0px;
+    border-radius: 34px;
+    font-size: 1.5em;
+    text-decoration: none;
+    font-weight: 600;
 }
-#controls button{
-	color: #fff;
-	background: #000;
-	border-radius: 25%;
-	border: solid grey 1px;
-	font-size: 1.2em;
-	width: 55px;
-	height: 55px;
-	margin: 5px;
+.link-game:nth-child(odd){
+    color: var(--mainFontColor);
+    background: var(--secondGhostButtonColor);
+}
+
+@media screen and (min-width: 480px){
+    #title{
+        font-size: 2.2em;
+        margin: 40px auto; 
+    } 
+    .link-game{
+        margin: 35px auto; 
+        width: 54%;
+        padding: 10px 0px;
+        border-radius: 30px;
+        font-size: 1.5em;
+    }
+}
+@media screen and (min-width: 767px){
+    #title{
+        font-size: 3em;
+        margin: 60px auto; 
+    } 
+    .link-game{
+        margin: 50px auto; 
+        width: 74%;
+        padding: 20px 0px;
+        border-radius: 50px;
+        font-size: 2em;
+    }
 }
 @media screen and (min-width: 950px){
-	#instructions{
-		display: block;
-		text-align: center;
-		font-weight: 800;
-		font-size: 1.5em;
-	}
-	#controls{
-		display: none;
-	}
+    #title{
+        font-size: 3em;
+        margin: 70px auto; 
+        font-weight: 900;
+    } 
+    .link-game{
+        margin: 40px auto; 
+        width: 56.25%;
+        color: var(--ghostButtonColor);
+        border: solid var(--ghostButtonColor) 2px; 
+        background: var(--mainBackColor);
+        padding: 20px 0px;
+        border-radius: 50px;
+        font-size: 1.8em;
+    }
+    .link-game:nth-child(odd){
+        color: var(--secondGhostButtonColor);
+        border: solid var(--secondGhostButtonColor) 2px; 
+        background: var(---mainBackColor);
+    }  
+    .link-game:hover{
+        color: var(--mainBackColor);
+        background: var(--ghostButtonColor);
+        transition: color .5s, background .5s;
+    }
+    .link-game:nth-child(odd):hover{
+        color: var(--mainBackColor);
+        background: var(--secondGhostButtonColor);
+        transition: color .5s, background .5s;
+    }
 }
